@@ -4,5 +4,5 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'piehole' });
+  res.render('index', { title: 'piehole', name: 'piehole' });
 };

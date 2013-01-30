@@ -7,9 +7,18 @@ var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , stylus = require('stylus')
+  , nib = require('nib');
 
 var app = express();
+
+function nibCompile(str, path){
+  return stylus(str)
+    .set('filename', path)
+    .set('compress', true)
+    .use(nib());
+}
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
@@ -22,13 +31,25 @@ app.configure(function(){
   app.use(express.cookieParser('U2FsdGVkX19HiCY8aVoN15eG84LlTt7hJUIKk3pCT6E='));
   app.use(express.session());
   app.use(app.router);
-  app.use(require('less-middleware')({ src: __dirname + '/public' }));
+  app.use(stylus.middleware({
+    src: __dirname + '/public',
+    compile: nibCompile
+  }));
   app.use(express.static(path.join(__dirname, 'public')));
 });
+
 
 app.configure('development', function(){
   app.use(express.errorHandler());
 });
+
+app.locals({
+  viewCSSLink: function(name) {
+    return '<link rel="stylesheet" href="/stylesheets/' + name + '.css">';
+  }
+});
+
+
 
 app.get('/', routes.index);
 app.get('/users', user.list);
