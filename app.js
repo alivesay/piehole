@@ -43,14 +43,6 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.locals({
-  viewCSSLink: function(css) {
-    return '<link rel="stylesheet" href="/stylesheets/' + css + '.css">';
-  }
-});
-
-
-
 app.get('/', routes.index);
 app.get('/users', user.list);
 
