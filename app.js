@@ -44,8 +44,8 @@ app.configure('development', function(){
 });
 
 app.locals({
-  viewCSSLink: function(name) {
-    return '<link rel="stylesheet" href="/stylesheets/' + name + '.css">';
+  viewCSSLink: function(css) {
+    return '<link rel="stylesheet" href="/stylesheets/' + css + '.css">';
   }
 });
 
