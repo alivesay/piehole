@@ -1,5 +1,18 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .chat-well
+    .chat-message-list
+      ul
+        li(data-ng-repeat='message in messages',
+           data-ng-class='{alert: message.user == "chatroom"}')
+          //span.chat-timestamp[{{displayTime timestamp}}]
+          span.chat-name &lt;{{message.user}}&gt;
+          span.chat-text{{message.text}}
+    
+    .chat-input-box
+      form.form-inline(data-ng-submit='sendMessage()')
+        fieldset
+          input(data-ng-model='message', type='text', size='50')
+          input(type='submit', value='Send')
+          // input.btn.btn-danger(type='button', value='Clear Messages')
