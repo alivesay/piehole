@@ -28,14 +28,7 @@ function pieholeCtrl($scope, socket) {
       user: 'chatroom',
       text: 'User ' + data.name + ' has left.'
     });
-    var i, user;
-    for (i = 0; i < $scope.users.length; i++) {
-      user = $scope.users[i];
-      if (user === data.name) {
-        $scope.users.splice(i, 1);
-        break;
-      }
-    }
+    $scope.users.remove(function(el) { return el === data.name; });
   });
 
   $scope.messages = [];

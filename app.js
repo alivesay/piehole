@@ -10,7 +10,8 @@ var express = require('express')
   , http = require('http')
   , path = require('path')
   , stylus = require('stylus')
-  , nib = require('nib');
+  , nib = require('nib')
+  , sugar = require('sugar');
 
 var app = module.exports = express();
 var server = require('http').createServer(app);
