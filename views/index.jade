@@ -2,7 +2,7 @@ extends layout
 
 block content
   ui-chatroom
-  .chat-well
+  .chat-well(data-ng-cloak)
     .chat-message-list
       ul
         li(data-ng-repeat='message in messages',

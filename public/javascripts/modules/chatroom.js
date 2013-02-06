@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('pieholeApp.widgets', [])
+angular.module('pieholeApp.directives', [])
   .directive('uiChatroom', function () {
     return {
       restrict: 'E',
