@@ -12,6 +12,6 @@
     "stylus": ">=0.32.0",
     "nib": ">=0.9.1",
     "socket.io": ">=0.9.13",
-    "sugar": "git://github.com/andrewplummer/Sugar.git" 
+    "sugar": "git://github.com/andrewplummer/Sugar.git"
   }
 }
