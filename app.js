@@ -1,8 +1,4 @@
 
-/**
- * Module dependencies.
- */
-
 var express = require('express')
   , routes = require('./routes')
   , socket = require('./routes/socket.js')
@@ -17,6 +13,7 @@ var app = module.exports = express();
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 
+/* settings for nib */
 function nibCompile(str, path){
   return stylus(str)
     .set('filename', path)
