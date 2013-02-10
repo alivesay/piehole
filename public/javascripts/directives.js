@@ -14,14 +14,13 @@ angular.module('pieholeApp.directives', [])
       replace: true,
       compile: function(tElement, tAttrs) {
         var content = tElement.children();
-        var newContent = content.clone();
-        newContent.addClass('n0');
-        for (var i = 1; i < tAttrs.count; i++) {
+        
+        for (var i = 0; i < tAttrs.count - 1; i++) {
           var nContent = content.clone();
           nContent.addClass('n' + i);
-          newContent.append(nContent);
+          tElement.append(nContent);
         }
-        tElement.replaceWith(newContent);
+        tElement.replaceWith(tElement.children());
       }
     };
   });
