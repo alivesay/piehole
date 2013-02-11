@@ -7,12 +7,14 @@ html(data-ng-app='pieholeApp')
     link(href='http://fonts.googleapis.com/css?family=Ubuntu+Mono', rel='stylesheet', type='text/css')
     link(rel='stylesheet', href='/javascripts/lib/bootstrap/css/bootstrap.min.css')
     link(rel='stylesheet', href='/javascripts/lib/bootstrap/css/bootstrap-responsive.min.css')
+    link(rel='stylesheet', href='/stylesheets/font-awesome/font-awesome.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
     
     - if (typeof(css) !== 'undefined')
       link(rel='stylesheet', href='/stylesheets/views/#{css}.css')
 
   body
+    div.icon-star
     div(data-ng-controller='pieholeCtrl')
       include header
       block content

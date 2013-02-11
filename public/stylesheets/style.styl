@@ -17,3 +17,23 @@ a
 .navbar
   .navbar-inner
     background: linear-gradient(top, $controlGradientHighlightColor, $controlGradientColor)
+
+@css {
+  [class^="icon-"], [class*=" icon-"]
+      background:none!important;
+}
+
+// ui-rating
+.ui-rating
+  .ui-rating-star
+    @extend .icon-star
+
+.ui-rating
+  .ui-rating-star.empty
+    @extend .icon-star-empty
+
+.x
+  @extend .icon-star
+  width: 14px;
+  height: 14px;
+  background-color: red;
