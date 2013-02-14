@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('pieholeApp.directives', [])
+
   .directive('appVersion', ['version', function (version) {
     return function(scope, elm, attrs) {
       elm.text(version);
     };
   }])
   
-  .directive('phNtimes', function () {
-    
+  .directive('phNtimes', function () {    
     return {
       restrict: 'E',
       replace: true,
@@ -22,7 +22,6 @@ angular.module('pieholeApp.directives', [])
         }
         
         content.addClass('n0');
-        tElement.replaceWith(tElement.children());
       }
     };
   });

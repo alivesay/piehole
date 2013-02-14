@@ -1,24 +1,58 @@
 'use strict';
 
-// should this have it's own controller?
-
 angular.module('pieholeApp.directives')
   .directive('uiRating', function () {
     return {
       restrict: 'E',
+      transclude: true,
       replace: true,
       
-      scope: { currentValue: '=currentValue',
-               maxValue:     '=maxValue' },
-               
+      scope: { currentValue: '@',
+               maxValue:     '=' },
+  
       template: '<div class="ui-rating">' +
-                '  <data-ph-ntimes count="5"><span class="ui-rating-star">☆</span></data>' +
+                  '<span class="ui-rating-star-container">' +
+                    '<data-ph-ntimes count="5">' +
+                      '<span data-ng-transclude class="ui-rating-star" />' +
+                    '</data-ph-ntimes>' +
+                  '</span>' +
                 '</div>',
-                
+      
       link: function postLink(scope, element, attrs, controller) {
-        element.children().each(function(i) {
-          $(this).toggleClass('empty', (i > scope.currentValue));
+
+        var setRatingViewByIndex = function(index) {
+          element.find('.ui-rating-star').each(function(i, el) {
+            angular.element(el).toggleClass('empty', (i > index));
+          });
+        };
+        
+        var setRatingViewByElement = function(el) {
+          setRatingViewByIndex(angular.element(el).index());
+        };
+        
+        var setRatingView = function(value) {
+          setRatingViewByIndex(value - 1);
+        }
+        
+        element.find('.ui-rating-star').each(function(i, el) {
+          angular.element(el).bind('mouseover', function(event) {
+            setRatingViewByElement(event.target);
+          });
+          
+          angular.element(el).bind('mouseleave', function(event){
+            setRatingView(scope.currentValue);
+          });
+          
+          angular.element(el).bind('click', function(event) {
+            attrs.$set('currentValue', angular.element(event.target).index() + 1);
+          });
         });
+        
+        attrs.$observe('currentValue', function(value) {
+          if (value)
+            setRatingView(value);
+        });
+            
       }
     };
   });
