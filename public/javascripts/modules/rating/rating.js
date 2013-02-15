@@ -44,7 +44,7 @@ angular.module('pieholeApp.directives')
             setRatingView(scope.ngModel);
           });
           
-          angular.element(el).bind('click', function(event) {
+          angular.element(el).bind('mousedown', function(event) {
             scope.$apply(function() {
               scope.ngModel = angular.element(event.target).index() + 1;
             });
