@@ -46,6 +46,8 @@ function pieholeCtrl($scope, socket) {
     $scope.message = '';
   };
 
-  $scope.rating_1 = 0;
+  $scope.data = {};
+  $scope.data.rating_bound = 0;
+  $scope.data.rating_standalone = 0;
   
 }

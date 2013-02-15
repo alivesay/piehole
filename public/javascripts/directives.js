@@ -8,20 +8,26 @@ angular.module('pieholeApp.directives', [])
     };
   }])
   
-  .directive('phNtimes', function () {    
+  .directive('phNtimes', function () {
     return {
       restrict: 'E',
       replace: true,
-      compile: function(tElement, tAttrs) {
-        var content = tElement.children();
-        
-        for (var i = 1; i < tAttrs.count; i++) {
-          var nContent = content.clone();
-          nContent.addClass('n' + i);
-          tElement.append(nContent);
+      scope: { count: '=' },
+      
+      compile: function(element, attrs) {
+        return {
+          post: function postLink(scope, element, attrs) {
+            var content = element.children();
+            
+            for (var i = 1; i < scope.count; i++) {
+              var nContent = content.clone();
+              nContent.addClass('n' + i);
+              element.append(nContent);
+            }
+            
+            content.addClass('n0');
+          }
         }
-        
-        content.addClass('n0');
       }
     };
   });
