@@ -24,8 +24,8 @@ block content
 
   .well rating_standalone:
     data-ui-rating(ng-model='data.rating_standalone', max-value='5')
-    
-    input(ng-model='data.rating_standalone')
+    label(for='rating_standalone_range') {{ data.rating_standalone }}
+    input(id='rating_standalone_range', type='range', min='0', max='5', ng-model='data.rating_standalone')
 
   .well
     data-ph-ntimes(count='5')
