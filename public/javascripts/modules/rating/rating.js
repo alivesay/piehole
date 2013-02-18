@@ -7,7 +7,7 @@ angular.module('pieholeApp.directives')
       transclude: true,
       replace: true,
 
-      scope: { ngModel:  '=',
+      scope: { ngModel: '=',
                maxValue: '=' },
   
       template: '<div>' +
@@ -24,6 +24,7 @@ angular.module('pieholeApp.directives')
         var setRatingViewByIndex = function(index) {
           element.find('.ui-rating-star').each(function(i, el) {
             angular.element(el).toggleClass('empty', (i > index));
+            angular.element(el).toggleClass('full', (index == scope.maxValue - 1 || scope.ngModel == scope.maxValue));
           });
         };
         
