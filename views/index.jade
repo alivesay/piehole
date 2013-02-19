@@ -1,22 +1,25 @@
 extends layout
 
 block content
-  ui-chatroom
-  .chat-well(data-ng-cloak)
+ 
+  ui-chatroom(data-ng-cloak)
+  .heavy-well
+    .heavy-header #pdxtech 
+  
     .chat-message-list
       ul
         li(data-ng-repeat='message in messages',
            data-ng-class='{alert: message.user == "chatroom"}')
           //span.chat-timestamp[{{displayTime timestamp}}]
-          span.chat-name &lt;{{message.user}}&gt;
+          span.chat-name &lt;{{message.user}}&gt;&nbsp;
           span.chat-text{{message.text}}
-    
-    .chat-input-box
-      form.form-inline(data-ng-submit='sendMessage()')
-        fieldset
-          input(data-ng-model='message', type='text', size='50')
-          input(type='submit', value='Send')
-          // input.btn.btn-danger(type='button', value='Clear Messages')
+  
+  .chat-input-box
+    form.form-inline(data-ng-submit='sendMessage()')
+      fieldset
+        input(data-ng-model='message', type='text', size='50')
+        input(type='submit', value='Send')
+        // input.btn.btn-danger(type='button', value='Clear Messages')
 
   .well rating_bound:
     data-ui-rating(ng-model='data.rating_bound', max-value='5')
