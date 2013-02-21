@@ -17,24 +17,24 @@ angular.module('pieholeApp.directives')
                         '<span data-ng-transclude class="ui-rating-star" />' +
                       '</data-ph-ntimes>' +
                     '</span>' +
-                  '</div>' +    
+                  '</div>' +
                 '</div>',
                     
       link: function postLink(scope, element, attrs, controller) {
         var setRatingViewByIndex = function(index) {
           element.find('.ui-rating-star').each(function(i, el) {
             angular.element(el).toggleClass('empty', (i > index));
-            angular.element(el).toggleClass('full', (index == scope.maxValue - 1 || scope.ngModel == scope.maxValue));
+            angular.element(el).toggleClass('full', (index === scope.maxValue - 1 || scope.ngModel === scope.maxValue));
           });
         };
         
         var setRatingViewByElement = function(el) {
           setRatingViewByIndex(angular.element(el).index());
         };
-        
-        var setRatingView = function(value) {
-          setRatingViewByIndex(value - 1);
-        };
+
+          var setRatingView = function(value) {
+              setRatingViewByIndex(value - 1);
+          };
         
         element.find('.ui-rating-star').each(function(i, el) {
           angular.element(el).bind('mouseover', function(event) {
