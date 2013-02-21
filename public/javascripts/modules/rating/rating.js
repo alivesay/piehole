@@ -13,7 +13,7 @@ angular.module('pieholeApp.directives')
       template: '<div>' +
                   '<div class="ui-rating">' +
                     '<span class="ui-rating-star-container">' +
-                      '<data-ph-ntimes count="maxValue">' +
+                      '<data-ph-ntimes data-count="maxValue">' +
                         '<span data-ng-transclude class="ui-rating-star" />' +
                       '</data-ph-ntimes>' +
                     '</span>' +

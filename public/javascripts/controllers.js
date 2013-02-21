@@ -39,7 +39,7 @@ function pieholeCtrl($scope, socket) {
     });
 
     $scope.messages.push({
-      user: $scope.name,
+      source: $scope.name,
       text: $scope.message
     });
 
