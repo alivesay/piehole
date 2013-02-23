@@ -14,7 +14,7 @@ angular.module('pieholeApp.directives', [])
       replace: true,
       scope: { count: '=' },
       
-      compile: function(element, attrs) {
+      compile: function(tElement, tAttrs) {
         return {
           post: function postLink(scope, element, attrs) {
             var content = element.children();
