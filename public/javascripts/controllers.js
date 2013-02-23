@@ -17,15 +17,15 @@ function pieholeCtrl($scope, socket) {
 
   socket.on('user:join', function (data) {
     $scope.messages.push({
-      user: 'chatroom',
-      test: 'User ' + data.name + ' has joined.'
+      source: 'chatroom',
+      text: 'User ' + data.name + ' has joined.'
     });
     $scope.users.push(data.name);
   });
 
   socket.on('user:left', function (data) {
     $scope.messages.push({
-      user: 'chatroom',
+      source: 'chatroom',
       text: 'User ' + data.name + ' has left.'
     });
     $scope.users.remove(function(el) { return el === data.name; });
@@ -49,5 +49,5 @@ function pieholeCtrl($scope, socket) {
   $scope.data = {};
   $scope.data.rating_bound = 0;
   $scope.data.rating_standalone = 0;
-  
+
 }

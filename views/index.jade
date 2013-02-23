@@ -6,9 +6,10 @@ block content
       .heavy-header #pdxtech
       .chat-message-list
         ui-message-list(data-ng-model='messages',
-                        data-message-classes='{ alert: message.source === "chatroom" }',
+                        data-message-classes='{ "chat-message-list-alert": message.source == "chatroom" }',
                         data-auto-scroll='true',
                         data-fade-in='true')
+
       .chat-input-box
         form.form-inline(data-ng-submit='sendMessage()')
           fieldset
