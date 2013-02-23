@@ -11,13 +11,14 @@ angular.module('pieholeApp.directives')
                autoScroll: '=',
                autoScrollSpeed: '=',
                fadeIn: '=',
-               fadeInSpeed: '=' },
+               fadeInSpeed: '=',
+               timestampFormat: '@' },
 
       template: '<div>' +
                   '<div class="ui-message-list">' +
                     '<ul>' +
                       '<li data-ng-repeat="message in ngModel" data-ng-class="{{messageClasses}}">' +
-            //    '<span class="ui-message-list-timestamp">{{ displayTime timestamp }}</span>' +
+                        '<span class="ui-message-list-timestamp">{{ message.timestamp | date: timestampFormat }}</span>' +
                         '<span class="ui-message-list-source">{{ message.source }}</span>' +
                         '<span class="ui-message-list-text">{{ message.text }}</span>' +
                       '</li>' +

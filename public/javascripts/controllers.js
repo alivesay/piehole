@@ -40,7 +40,8 @@ function pieholeCtrl($scope, socket) {
 
     $scope.messages.push({
       source: $scope.name,
-      text: $scope.message
+      text: $scope.message,
+      timestamp: Date.now()
     });
 
     $scope.message = '';

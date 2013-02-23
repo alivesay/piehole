@@ -8,7 +8,8 @@ block content
         ui-message-list(data-ng-model='messages',
                         data-message-classes='{ "chat-message-list-alert": message.source == "chatroom" }',
                         data-auto-scroll='true',
-                        data-fade-in='true')
+                        data-fade-in='true',
+                        data-timestamp-format='HH:mm')
 
       .chat-input-box
         form.form-inline(data-ng-submit='sendMessage()')
