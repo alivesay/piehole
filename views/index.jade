@@ -2,21 +2,22 @@ extends layout
 
 block content
   .main-content(data-ng-cloak)
-    .heavy-well
-      .heavy-header #pdxtech
-      .chat-message-list
-        ui-message-list(data-ng-model='messages',
-                        data-message-classes='{ "chat-message-list-alert": message.source == "chatroom" }',
-                        data-auto-scroll='true',
-                        data-fade-in='true',
-                        data-timestamp-format='HH:mm')
+    .light-well
+      .light-well-header #piehole
+      .light-well-inner
+        .chat-message-list
+          ui-message-list(data-ng-model='messages',
+                          data-message-classes='{ "chat-message-list-alert": message.source == "chatroom" }',
+                          data-auto-scroll='true',
+                          data-fade-in='true',
+                          data-timestamp-format='HH:mm')
 
-      .chat-input-box
-        form.form-inline(data-ng-submit='sendMessage()')
-          fieldset
-            input(data-ng-model='message', type='text', size='50')
-            input(type='submit', value='Send')
-            // input.btn.btn-danger(type='button', value='Clear Messages')
+        .chat-input-box
+          form.form-inline(data-ng-submit='sendMessage()')
+            fieldset
+              input(data-ng-model='message', type='text', class='chat-input-box-text',
+                    placeholder='Enter text here to chat')
+              // input.btn.btn-danger(type='button', value='Clear Messages')
 
     .well rating_bound:
       data-ui-rating(ng-model='data.rating_bound', max-value='5')
@@ -25,7 +26,7 @@ block content
     .well rating_standalone:
       data-ui-rating(data-ng-model='data.rating_standalone', data-max-value='5')
       label(for='rating_standalone_range') {{ data.rating_standalone }}
-      input(id='rating_standalone_range', type='range', min='0', max='5', ng-model='data.rating_standalone')
+      input(id='rating_standalone_range', type='range', min='0', max='5', ng-model='data.rating_standalone',)
 
     .well
       data-ph-ntimes(count='5')
