@@ -110,23 +110,24 @@ fieldset
   border-top: 1px solid rgb(184,184,179)
 
 
-// ui-chatroom
+// ui-message-list
 
 .ui-message-list
   background-color: rgb(88,88,88)
-  overflow: auto
-  height: 200px
-  padding: 4px
+  background-repeat: repeat-x
+  width: 100%
+  height: 192px
+  overflow-y: auto
+  color: rgb(234,228,221)
 
 .ui-message-list ul
   list-style-type: none
-  padding: 0px
+  padding: 4px
   margin: 0px
 
 .ui-message-list li
   padding: 4px 0px 4px 0px
   word-wrap: break-word
-  color: rgb(234,228,221)
   font-size: 14px
   line-height: 16px
 
@@ -145,20 +146,25 @@ fieldset
 .ui-message-list-timestamp:after
   content: " "
 
+
+// chat-message-list
+
 .chat-message-list-alert
-  color: red
+  color: rgb(194,93,93)
+
+.chat-message-list-alert .ui-message-list-source
+  display: none
+
+.chat-message-list-alert .ui-message-list-text
+  font-style: italic
 
 .chat-input-box-text
   width: 100%
   line-height: 24px
+  height: 24px
   box-sizing: border-box
-  margin: 0px
+  margin: 4px 0px 4px 0px
   padding: 0px 6px 0px 6px
   border: 1px solid rgb(204,205,199)
   border-radius: 0px 0px 5px 5px
   background-color: rgb(240,240,236)
-
-@css {
-  [class^="icon-"], [class*=" icon-"]
-      background:none!important;
-}

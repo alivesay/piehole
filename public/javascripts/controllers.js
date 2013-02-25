@@ -18,7 +18,8 @@ function pieholeCtrl($scope, socket) {
   socket.on('user:join', function (data) {
     $scope.messages.push({
       source: 'chatroom',
-      text: 'User ' + data.name + ' has joined.'
+      text: 'User ' + data.name + ' has joined.',
+      timestamp: Date.now()
     });
     $scope.users.push(data.name);
   });
@@ -26,7 +27,8 @@ function pieholeCtrl($scope, socket) {
   socket.on('user:left', function (data) {
     $scope.messages.push({
       source: 'chatroom',
-      text: 'User ' + data.name + ' has left.'
+      text: 'User ' + data.name + ' has left.',
+      timestamp: Date.now()
     });
     $scope.users.remove(function(el) { return el === data.name; });
   });
