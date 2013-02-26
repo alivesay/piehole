@@ -1,6 +1,6 @@
 'use strict';
 
-function pieholeCtrl($scope, socket) {
+function pieholeCtrl($scope, $rootScope, socket) {
   
   socket.on('init', function (data) {
     $scope.name = data.name;
@@ -52,5 +52,4 @@ function pieholeCtrl($scope, socket) {
   $scope.data = {};
   $scope.data.rating_bound = 0;
   $scope.data.rating_standalone = 0;
-
 }

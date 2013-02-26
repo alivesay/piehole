@@ -7,7 +7,7 @@ angular.module('pieholeApp.directives')
       replace: true,
 
       scope: { ngModel: '=',
-               messageClasses: '@',
+               getMessageClasses: '=',
                autoScroll: '=',
                autoScrollSpeed: '=',
                fadeIn: '=',
@@ -17,7 +17,7 @@ angular.module('pieholeApp.directives')
       template: '<div>' +
                   '<div class="ui-message-list">' +
                     '<ul>' +
-                      '<li data-ng-repeat="message in ngModel" data-ng-class="{{messageClasses}}">' +
+                      '<li data-ng-repeat="message in ngModel" data-ng-class="getMessageClasses(message)">' +
                         '<span class="ui-message-list-timestamp" data-ng-bind="message.timestamp | date: timestampFormat"></span>' +
                         '<span class="ui-message-list-source" data-ng-bind="message.source"></span>' +
                         '<span class="ui-message-list-text" data-ng-bind="message.text"></span>' +
