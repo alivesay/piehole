@@ -14,7 +14,7 @@ angular.module('pieholeApp.directives')
       controller: function($scope) {
         $scope.getMessageClasses = function(message) {
           return { 'chatroom-message-list-alert': message.source == 'chatroom',
-                   'chatroom-message-list-directed': message.text.indexOf($scope.username) !== -1 };
+                   'chatroom-message-list-directed': message.text.match(new RegExp($scope.username, "i")) };
         };
       },
 
@@ -35,7 +35,5 @@ angular.module('pieholeApp.directives')
                   '</div>' +
                 '</div>'
     };
-
-
   });
 
