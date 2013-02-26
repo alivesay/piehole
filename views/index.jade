@@ -27,13 +27,13 @@ block content
               // input.btn.btn-danger(type='button', value='Clear Messages')
 
     .well rating_bound:
-      data-ui-rating(ng-model='data.rating_bound', max-value='5')
-      data-ui-rating(ng-model='data.rating_bound', max-value='5')
+      data-ui-rating(data-value='data.rating_bound', max-value='5')
+      data-ui-rating(data-value='data.rating_bound', max-value='5')
 
     .well rating_standalone:
-      data-ui-rating(data-ng-model='data.rating_standalone', data-max-value='5')
+      data-ui-rating(data-value='data.rating_standalone', data-max-value='5')
       label(for='rating_standalone_range') {{ data.rating_standalone }}
-      input(id='rating_standalone_range', type='range', min='0', max='5', ng-model='data.rating_standalone',)
+      input(id='rating_standalone_range', type='range', min='0', max='5', data-ng-model='data.rating_standalone',)
 
     .well
       data-ph-ntimes(count='5')
