@@ -20,7 +20,7 @@ angular.module('pieholeApp.directives')
 
       template: '<div>' +
                   '<div class="chatroom-message-list">' +
-                    '<ui-message-list data-ng-model="messages" ' +
+                    '<ui-message-list data-messages="messages" ' +
                       'data-get-message-classes="getMessageClasses" ' +
                       'data-auto-scroll="true" ' +
                       'data-fade-in="true" ' +

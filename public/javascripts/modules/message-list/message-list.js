@@ -6,7 +6,7 @@ angular.module('pieholeApp.directives')
       restrict: 'E',
       replace: true,
 
-      scope: { ngModel: '=',
+      scope: { messages: '=',
                getMessageClasses: '=',
                autoScroll: '=',
                autoScrollSpeed: '=',
@@ -17,7 +17,7 @@ angular.module('pieholeApp.directives')
       template: '<div>' +
                   '<div class="ui-message-list">' +
                     '<ul>' +
-                      '<li data-ng-repeat="message in ngModel" data-ng-class="getMessageClasses(message)">' +
+                      '<li data-ng-repeat="message in messages" data-ng-class="getMessageClasses(message)">' +
                         '<span class="ui-message-list-timestamp" data-ng-bind="message.timestamp | date: timestampFormat"></span>' +
                         '<span class="ui-message-list-source" data-ng-bind="message.source"></span>' +
                         '<span class="ui-message-list-text" data-ng-bind="message.text"></span>' +
@@ -27,7 +27,7 @@ angular.module('pieholeApp.directives')
                 '</div>',
 
       link: function postLink(scope, element, attrs, controller) {
-        scope.$watch('ngModel', function() {
+        scope.$watch('messages', function() {
           var uiMessageListDiv = element.find('.ui-message-list:first');
 
           if (scope.autoScroll === true) {
