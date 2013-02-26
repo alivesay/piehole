@@ -3,19 +3,26 @@ extends layout
 block content
   .main-content(data-ng-cloak)
     .light-well
-      .light-well-header #piehole
+      .light-well-header x
       .light-well-inner
-        .chat-message-list
+        .chatroom-message-list
+          ui-chatroom(data-messages='messages',
+                      data-input='message',
+                      data-username='name',
+                      data-on-submit='sendMessage')
+
+    .light-well
+      .light-well-header #piehole -- The human's largest I/O port.
+      .light-well-inner
+        .chatroom-message-list
           ui-message-list(data-ng-model='messages',
-                          data-message-classes='{ "chat-message-list-alert": message.source == "chatroom" }',
                           data-auto-scroll='true',
                           data-fade-in='true',
                           data-timestamp-format='HH:mm')
-
-        .chat-input-box
-          form.form-inline(data-ng-submit='sendMessage()')
+        .chatroom-input-box
+          form.form-inline(data-ng-submit='sendMessage(message)')
             fieldset
-              input(data-ng-model='message', type='text', class='chat-input-box-text',
+              input(data-ng-model='message', type='text', class='chatroom-input-box-text',
                     placeholder='Enter text here to chat')
               // input.btn.btn-danger(type='button', value='Clear Messages')
 
