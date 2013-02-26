@@ -7,7 +7,7 @@ angular.module('pieholeApp.directives')
       transclude: true,
       replace: true,
 
-      scope: { ngModel: '=',
+      scope: { value: '=',
                maxValue: '=' },
   
       template: '<div>' +
@@ -24,7 +24,7 @@ angular.module('pieholeApp.directives')
         var setRatingViewByIndex = function(index) {
           element.find('.ui-rating-star').each(function(i, el) {
             angular.element(el).toggleClass('empty', (i > index));
-            angular.element(el).toggleClass('full', (index === scope.maxValue - 1 || scope.ngModel === scope.maxValue));
+            angular.element(el).toggleClass('full', (index === scope.maxValue - 1 || scope.value === scope.maxValue));
           });
         };
         
@@ -42,22 +42,22 @@ angular.module('pieholeApp.directives')
           });
           
           angular.element(el).bind('mouseleave', function(){
-            setRatingView(scope.ngModel);
+            setRatingView(scope.value);
           });
           
           angular.element(el).bind('mousedown', function(event) {
             scope.$apply(function() {
-              scope.ngModel = angular.element(event.target).index() + 1;
+              scope.value = angular.element(event.target).index() + 1;
             });
           });          
         });
         
-        scope.$watch('ngModel', function(value) {
+        scope.$watch('value', function(value) {
           if (value)
             setRatingView(value);
         });
         
-        setRatingView(scope.ngModel);
+        setRatingView(scope.value);
       }
     };
   });
