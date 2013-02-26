@@ -60,7 +60,8 @@ module.exports = function (socket) {
   socket.on('send:message', function (data) {
     socket.broadcast.emit('send:message', {
       source: name,
-      text: data.message
+      text: data.message,
+      timestamp: Date.now()
     });
   });
 
