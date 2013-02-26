@@ -18,9 +18,9 @@ angular.module('pieholeApp.directives')
                   '<div class="ui-message-list">' +
                     '<ul>' +
                       '<li data-ng-repeat="message in ngModel" data-ng-class="{{messageClasses}}">' +
-                        '<span class="ui-message-list-timestamp">{{ message.timestamp | date: timestampFormat }}</span>' +
-                        '<span class="ui-message-list-source">{{ message.source }}</span>' +
-                        '<span class="ui-message-list-text">{{ message.text }}</span>' +
+                        '<span class="ui-message-list-timestamp" data-ng-bind="message.timestamp | date: timestampFormat"></span>' +
+                        '<span class="ui-message-list-source" data-ng-bind="message.source"></span>' +
+                        '<span class="ui-message-list-text" data-ng-bind="message.text"></span>' +
                       '</li>' +
                     '</ul>' +
                   '</div>' +
