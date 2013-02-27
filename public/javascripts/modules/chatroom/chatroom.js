@@ -14,7 +14,7 @@ angular.module('pieholeApp.directives')
       controller: function($scope) {
         $scope.getMessageClasses = function(message) {
           return { 'chatroom-message-list-alert': message.source == 'chatroom',
-                   'chatroom-message-list-directed': message.text.match(new RegExp($scope.username, "i")) };
+                   'chatroom-message-list-directed': message.source !== $scope.username && message.text.match(new RegExp($scope.username, "i")) };
         };
       },
 
@@ -27,7 +27,7 @@ angular.module('pieholeApp.directives')
                       'data-timestamp-format="HH:mm">' +
                   '</div>' +
                   '<div class="chatroom-input-box">' +
-                    '<form class="form-inline" data-ng-submit="onSubmit()">' +
+                    '<form data-ng-submit="onSubmit()">' +
                       '<fieldset>' +
                         '<input data-ng-model="input" type="text" class="chatroom-input-box-text" placeholder="Enter text here to chat">' +
                       '</fieldset>' +
