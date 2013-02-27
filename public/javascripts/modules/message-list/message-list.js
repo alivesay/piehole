@@ -32,13 +32,13 @@ angular.module('pieholeApp.directives')
 
           if (scope.autoScroll === true) {
             uiMessageListDiv.stop().animate({ scrollTop: uiMessageListDiv.prop('scrollHeight') },
-                                            parseInt(scope.autoScrollSpeed || 500, 10));
+                                            parseInt(scope.autoScrollSpeed || 300, 10));
           }
 
           if (scope.fadeIn === true) {
             var lastMessageLi = uiMessageListDiv.find('li:last');
               if (lastMessageLi !== undefined) {
-                lastMessageLi.stop().animate({ opacity: 1 }, parseInt(scope.fadeInSpeed || 500, 10));
+                lastMessageLi.stop().animate({ opacity: 1}, parseInt(scope.fadeInSpeed || 300, 10));
               }
             }
           }, true);
