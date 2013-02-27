@@ -3,7 +3,7 @@ extends layout
 block content
   .main-content(data-ng-cloak)
     .light-well
-      .light-well-header x
+      .light-well-header #piehole -- The human's largest I/O port.
       .light-well-inner
         .chatroom-message-list
           ui-chatroom(data-messages='messages',
@@ -11,30 +11,19 @@ block content
                       data-username='name',
                       data-on-submit='sendMessage')
 
-    .light-well
-      .light-well-header #piehole -- The human's largest I/O port.
+
+    .light-well(data-ng-hide='true')
+      .light-well-inner rating_bound:
+        data-ui-rating(data-value='data.rating_bound', max-value='5')
+        data-ui-rating(data-value='data.rating_bound', max-value='5')
+
+    .light-well(data-ng-hide='true')
       .light-well-inner
-        .chatroom-message-list
-          ui-message-list(data-ng-model='messages',
-                          data-auto-scroll='true',
-                          data-fade-in='true',
-                          data-timestamp-format='HH:mm')
-        .chatroom-input-box
-          form.form-inline(data-ng-submit='sendMessage(message)')
-            fieldset
-              input(data-ng-model='message', type='text', class='chatroom-input-box-text',
-                    placeholder='Enter text here to chat')
-              // input.btn.btn-danger(type='button', value='Clear Messages')
+        .well rating_standalone:
+          data-ui-rating(data-value='data.rating_standalone', data-max-value='5')
+          label(for='rating_standalone_range') {{ data.rating_standalone }}
+          input(id='rating_standalone_range', type='range', min='0', max='5', data-ng-model='data.rating_standalone',)
 
-    .well rating_bound:
-      data-ui-rating(data-value='data.rating_bound', max-value='5')
-      data-ui-rating(data-value='data.rating_bound', max-value='5')
-
-    .well rating_standalone:
-      data-ui-rating(data-value='data.rating_standalone', data-max-value='5')
-      label(for='rating_standalone_range') {{ data.rating_standalone }}
-      input(id='rating_standalone_range', type='range', min='0', max='5', data-ng-model='data.rating_standalone',)
-
-    .well
-      data-ph-ntimes(count='5')
-        h3 ntimes test
+        .well
+          data-ph-ntimes(count='5')
+            h3 ntimes test
